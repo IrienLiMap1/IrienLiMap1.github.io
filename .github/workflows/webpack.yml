@@ -26,6 +26,7 @@ jobs:
         spreadsheetId: '1e4CdoVbDLkUi6Gli7RamC9R_YVTKrk46P23b53lNSXc'
         commands: |
           [
+            { "command": "getData", "args": { "range": "'polygons'!A2:D111" } },
             { "command": "getData", "args": { "range": "'houses'!A2:D111" } }
           ]
       env:
