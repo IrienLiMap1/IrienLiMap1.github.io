@@ -27,7 +27,7 @@ jobs:
         commands: |
           [
             { "command": "getData", "args": { "range": "'polygons'!A2:E111" } },
-            { "command": "getData", "args": { "range": "'houses'!A2:E111" } }
+            { "command": "getData", "args": { "range": "'houses'!A2:F111" } }
           ]
       env:
         GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
