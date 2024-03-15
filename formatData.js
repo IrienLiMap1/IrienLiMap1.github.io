@@ -1,5 +1,5 @@
 const fs = require('fs');
-const obj = JSON.parse(fs.readFileSync('./dist/res.json', 'utf8'));
+const obj = JSON.parse(fs.readFileSync('./res.json', 'utf8'));
 
 const formattedObj = {};
 
@@ -27,6 +27,6 @@ obj.results.forEach(({result}) => {
     });
 });
 
-fs.writeFileSync("./dist/res2.json", JSON.stringify(formattedObj));
+fs.writeFileSync("./res2.json", JSON.stringify(formattedObj));
 
 // console.log(formattedObj);
