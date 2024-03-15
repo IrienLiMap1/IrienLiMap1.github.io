@@ -5,26 +5,21 @@ const formattedObj = {};
 
 obj.results.forEach(({result}) => {
     const [tabType] = result.range.split('!');
-
-    formattedObj[tabType] = result.rawData.map((raw) => {
-        const [
-            title,
-            description,
-            coords,
-            village,
-            iconColor,
-            iconType
-        ] = raw;
-
-        return {
-            title: title.trim(),
-            description: description.trim(),
-            coords,
-            village,
-            iconColor,
-            iconType
-        };
+    let titles = [];
+    const resArr = [];
+    result.rawData.forEach((row, rowIndex) => {
+        const res = {};
+        if (rowIndex === 0) {
+            titles = row;
+        } else {
+            row.forEach((cell, cellIndex) => {
+                const fieldName = titles[cellIndex];
+                res[fieldName] = cell;
+            });
+            resArr.push(res)
+        }
     });
+    formattedObj[tabType] = resArr;
 });
 
 fs.writeFileSync("./res2.json", JSON.stringify(formattedObj));
